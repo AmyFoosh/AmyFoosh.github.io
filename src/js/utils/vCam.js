@@ -29,33 +29,42 @@ function setVCamStartingPos(x, y) {
 
     joystick = new Joystick(100, canvas.height - 200, 100, 100);
     joystick.setDefaultPos(100, canvas.height - 200);
+
+    addEventListener("touchstart", (e) => {
+
+        let touch = e.touches[0];
+
+        let x = touch.clientX;
+        let y = touch.clientY;
+
+        joystick.x = x - joystick.width / 2;
+        joystick.y = y - joystick.height / 2;
+        joystick.active = true;
+    });
+
+    addEventListener("touchend", (e) => {
+
+        joystick.x = joystick.defaultX;
+        joystick.y = joystick.defaultY;
+        joystick.active = false;
+    });
+
+    addEventListener("touchmove", (e) => {
+
+        if (joystick.active) {
+
+            let touch = e.touches[0];
+
+            let x = touch.clientX;
+            let y = touch.clientY;
+
+            joystick.x = x - joystick.width / 2;
+            joystick.y = y - joystick.height / 2;
+        }
+    });
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 
-
-addEventListener("touchstart", (e) => {
-
-    joystick.x = e.offsetX - joystick.width / 2;
-    joystick.y = e.offsetY - joystick.height / 2;
-    joystick.active = true;
-    
-});
-
-addEventListener("touchend", (e) => {
-
-    joystick.x = joystick.defaultX;
-    joystick.y = joystick.defaultY;
-    joystick.active = false;
-});
-
-addEventListener("touchmove", (e) => {
-
-    if (joystick.active) {
-
-        joystick.x = e.offsetX - joystick.width / 2;
-        joystick.y = e.offsetY - joystick.height / 2;
-    }
-});
 
 // -- FOLLOW TARGET --
 

@@ -22,6 +22,8 @@ function playerController() {
 // This class allows player movement across canvas.
 function playerMovement() {
 
+    console.log(userDevice);
+
     if (userDevice === "pc") playerPCMovement();
     if (userDevice === "mobile") playerMobileMovement();
 }

@@ -71,7 +71,7 @@ function getOS() {
 
             console.log("Device: iOS.");
             userDevice = "mobile";
-            alert("Mobile");
+            alert("Mobile Detected");
 
             importPlayerMobileControls();
             return;
@@ -84,7 +84,7 @@ function getOS() {
 
             console.log("Device: Android.");
             userDevice = "mobile";
-            alert("Mobile");
+            alert("Mobile Detected");
 
             importPlayerMobileControls();
             return;
