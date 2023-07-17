@@ -7,10 +7,12 @@ class Enemy extends Sprite {
     // ---- ---- ---- ---- ---- ---- ---- ---- 
 
     // Initial values for X, Y and player radius size.
-    constructor(x, y, radius, color) {
+    constructor(x, y, radius) {
 
         // Get access to Sprite constructor and variables.
-        super(x, y, radius);
+        super(x, y);
+
+        this.radius = radius;
 
         // Pick random color.
         this.color = randomColor();

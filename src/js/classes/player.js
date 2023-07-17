@@ -15,7 +15,9 @@ class Player extends Sprite {
     constructor(x, y, radius, color) {
 
         // Get access to Sprite constructor and variables.
-        super(x, y, radius);
+        super(x, y);
+
+        this.radius = radius;
 
         this.color = color;
 

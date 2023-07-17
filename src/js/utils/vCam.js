@@ -14,6 +14,8 @@ let vCamX = 0;
 let vCamY = 0;
 let vCamSpeed = 0.05;
 
+let joystick;
+
 // ---- ---- ---- ---- ---- ---- ---- ---- 
 
 // -- STARTING VCAM POSITION --
@@ -24,9 +26,36 @@ function setVCamStartingPos(x, y) {
 
     vCamX -= x;
     vCamY -= y;
+
+    joystick = new Joystick(100, canvas.height - 200, 100, 100);
+    joystick.setDefaultPos(100, canvas.height - 200);
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 
+
+addEventListener("mousedown", (e) => {
+
+    joystick.x = e.offsetX - joystick.width / 2;
+    joystick.y = e.offsetY - joystick.height / 2;
+    joystick.active = true;
+    
+});
+
+addEventListener("mouseup", (e) => {
+
+    joystick.x = joystick.defaultX;
+    joystick.y = joystick.defaultY;
+    joystick.active = false;
+});
+
+addEventListener("mousemove", (e) => {
+
+    if (joystick.active) {
+
+        joystick.x = e.offsetX - joystick.width / 2;
+        joystick.y = e.offsetY - joystick.height / 2;
+    }
+});
 
 // -- FOLLOW TARGET --
 
@@ -40,6 +69,17 @@ function vCam(target) {
     // Create a delay effect.
     vCamX += (posX - vCamX) * vCamSpeed;
     vCamY += (posY - vCamY) * vCamSpeed;
+
+    // ---- ---- ---- ---- ---- ---- ---- ---- 
+
+    // -- UI --
+
+    ctx.strokeStyle = "green";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(joystick.x, joystick.y, joystick.width, joystick.height);
+    ctx.fill();
+
+    // ---- ---- ---- ---- ---- ---- ---- ---- 
 
     // Apply vCam movement.
     ctx.translate(-vCamX, -vCamY);

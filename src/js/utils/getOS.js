@@ -72,7 +72,7 @@ function getOS() {
             console.log("Device: iOS.");
             userDevice = "mobile";
 
-            // TODO: import Mobile Controls.
+            importPlayerMobileControls();
             return;
         }
 
@@ -84,7 +84,7 @@ function getOS() {
             console.log("Device: Android.");
             userDevice = "mobile";
 
-            // TODO: import Mobile Controls.
+            importPlayerMobileControls();
             return;
         }
 

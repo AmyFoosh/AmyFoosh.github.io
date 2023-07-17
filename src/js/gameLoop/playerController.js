@@ -22,14 +22,13 @@ function playerController() {
 // This class allows player movement across canvas.
 function playerMovement() {
 
-    // Call PC movement if device is a PC.
-    if (userDevice === "pc") {
-
-        playerPCMovement();
-    }
-
-    // TODO: call mobile movement if device is a phone.
+    if (userDevice === "pc") playerPCMovement();
+    if (userDevice === "mobile") playerMobileMovement();
 }
+
+// ---- ---- ---- ---- ---- ---- ---- ---- 
+
+// -- PC MOVEMENT --
 
 function playerPCMovement() {
 
@@ -65,11 +64,36 @@ function playerPCMovement() {
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 
 
+// -- MOBILE MOVEMENT --
+
+function playerMobileMovement() {
+
+    if (joystick.active) {
+
+        player.move();
+
+        let dirX = joystick.defaultX - joystick.x;
+        let dirY = joystick.defaultY - joystick.y;
+
+        let angle = Math.atan2(dirY, dirX);
+
+        player.x -= Math.cos(angle) * player.movementSpeedCurrent;
+        player.y -= Math.sin(angle) * player.movementSpeedCurrent;
+
+    } else {
+
+        player.unmove();
+    }
+}
+
+// ---- ---- ---- ---- ---- ---- ---- ---- 
+
 // -- DRAW PLAYER ON CANVAS --
 
 // Draw player on canvas.
 function drawPlayer() {
 
+    // Draw player.
     ctx.fillStyle = player.color;
     ctx.beginPath();
     ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);

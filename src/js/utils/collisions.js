@@ -1,4 +1,12 @@
+// ---- ---- ---- ---- ---- ---- ---- ---- 
+
+// -- COLLISIONS --
+
 class Collisions {
+
+    // ---- ---- ---- ---- ---- ---- ---- ---- 
+
+    // -- CIRCULAR COLLISION --
 
     static circularCollision(target1, target2) {
 
@@ -16,4 +24,17 @@ class Collisions {
             return false;
         }
     }
+
+    // ---- ---- ---- ---- ---- ---- ---- ---- 
+
+    // -- COLLISION BETWEEN MOUSE AND SPRITE --
+
+    static spriteCollision(x, y, target) {
+
+        
+    }
+
+    // ---- ---- ---- ---- ---- ---- ---- ---- 
 }
+
+// ---- ---- ---- ---- ---- ---- ---- ---- 
