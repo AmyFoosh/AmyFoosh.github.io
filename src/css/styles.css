@@ -1,0 +1,27 @@
+/* ---- ---- ---- ---- ---- ---- ---- ---- */
+
+/* -- GENERAL SETTINGS -- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ---- ---- ---- ---- ---- ---- ---- ---- */
+
+/* Game Container (canvas container) */
+
+#app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+/* ---- ---- ---- ---- ---- ---- ---- ---- */
+
+/* Game Canvas  */
+
+canvas {
+    background-color: black;
+}
+
+/* ---- ---- ---- ---- ---- ---- ---- ---- */
