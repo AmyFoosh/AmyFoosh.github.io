@@ -33,7 +33,7 @@ function setVCamStartingPos(x, y) {
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 
 
-addEventListener("mousedown", (e) => {
+addEventListener("touchstart", (e) => {
 
     joystick.x = e.offsetX - joystick.width / 2;
     joystick.y = e.offsetY - joystick.height / 2;
@@ -41,14 +41,14 @@ addEventListener("mousedown", (e) => {
     
 });
 
-addEventListener("mouseup", (e) => {
+addEventListener("touchend", (e) => {
 
     joystick.x = joystick.defaultX;
     joystick.y = joystick.defaultY;
     joystick.active = false;
 });
 
-addEventListener("mousemove", (e) => {
+addEventListener("touchmove", (e) => {
 
     if (joystick.active) {
 
