@@ -34,8 +34,8 @@ function setVCamStartingPos(x, y) {
 
         let touch = e.touches[0];
 
-        let x = touch.clientX;
-        let y = touch.clientY;
+        let x = touch.clientX - canvas.offsetLeft;
+        let y = touch.clientY - canvas.offsetTop;
 
         joystick.x = x - joystick.width / 2;
         joystick.y = y - joystick.height / 2;
@@ -55,8 +55,8 @@ function setVCamStartingPos(x, y) {
 
             let touch = e.touches[0];
 
-            let x = touch.clientX;
-            let y = touch.clientY;
+            let x = touch.clientX - canvas.offsetLeft;
+            let y = touch.clientY - canvas.offsetTop;
 
             joystick.x = x - joystick.width / 2;
             joystick.y = y - joystick.height / 2;
