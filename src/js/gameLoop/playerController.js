@@ -22,10 +22,8 @@ function playerController() {
 // This class allows player movement across canvas.
 function playerMovement() {
 
-    console.log(userDevice);
-
     if (userDevice === "pc") playerPCMovement();
-    if (userDevice === "mobile") playerMobileMovement();
+    // TODO: add device touch support.
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 
@@ -60,30 +58,6 @@ function playerPCMovement() {
     } else {
 
         // Reduce current player speed when is not moving.
-        player.unmove();
-    }
-}
-
-// ---- ---- ---- ---- ---- ---- ---- ---- 
-
-// -- MOBILE MOVEMENT --
-
-function playerMobileMovement() {
-
-    if (joystick.active) {
-
-        player.move();
-
-        let dirX = joystick.defaultX - joystick.x;
-        let dirY = joystick.defaultY - joystick.y;
-
-        let angle = Math.atan2(dirY, dirX);
-
-        player.x -= Math.cos(angle) * player.movementSpeedCurrent;
-        player.y -= Math.sin(angle) * player.movementSpeedCurrent;
-
-    } else {
-
         player.unmove();
     }
 }

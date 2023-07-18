@@ -30,6 +30,8 @@ function gameLoop() {
     playerController();
     // Call enemies behavior.
     enemyController();
+    // Call bullets behavior.
+    bulletsController();
     // Call collisions behavior.
     collisionsController();
 

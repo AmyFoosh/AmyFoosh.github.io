@@ -10,10 +10,11 @@
 class Sprite {
 
     // Set initial values for coordinates and object radius size.
-    constructor(x, y, width, height) {
+    constructor(x, y, radius, width, height) {
 
         this.x = x;
         this.y = y;
+        this.radius = radius;
         this.width = width;
         this.height = height;
     }

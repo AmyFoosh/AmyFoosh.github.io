@@ -26,15 +26,6 @@ class Collisions {
     }
 
     // ---- ---- ---- ---- ---- ---- ---- ---- 
-
-    // -- COLLISION BETWEEN MOUSE AND SPRITE --
-
-    static spriteCollision(x, y, target) {
-
-        
-    }
-
-    // ---- ---- ---- ---- ---- ---- ---- ---- 
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 

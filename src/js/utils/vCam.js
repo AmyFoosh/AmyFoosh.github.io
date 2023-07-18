@@ -14,8 +14,6 @@ let vCamX = 0;
 let vCamY = 0;
 let vCamSpeed = 0.05;
 
-let joystick;
-
 // ---- ---- ---- ---- ---- ---- ---- ---- 
 
 // -- STARTING VCAM POSITION --
@@ -26,42 +24,6 @@ function setVCamStartingPos(x, y) {
 
     vCamX -= x;
     vCamY -= y;
-
-    joystick = new Joystick(100, canvas.height - 200, 100, 100);
-    joystick.setDefaultPos(100, canvas.height - 200);
-
-    addEventListener("touchstart", (e) => {
-
-        let touch = e.touches[0];
-
-        let x = touch.clientX - canvas.offsetLeft;
-        let y = touch.clientY - canvas.offsetTop;
-
-        joystick.x = x - joystick.width / 2;
-        joystick.y = y - joystick.height / 2;
-        joystick.active = true;
-    });
-
-    addEventListener("touchend", (e) => {
-
-        joystick.x = joystick.defaultX;
-        joystick.y = joystick.defaultY;
-        joystick.active = false;
-    });
-
-    addEventListener("touchmove", (e) => {
-
-        if (joystick.active) {
-
-            let touch = e.touches[0];
-
-            let x = touch.clientX - canvas.offsetLeft;
-            let y = touch.clientY - canvas.offsetTop;
-
-            joystick.x = x - joystick.width / 2;
-            joystick.y = y - joystick.height / 2;
-        }
-    });
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 
@@ -82,11 +44,6 @@ function vCam(target) {
     // ---- ---- ---- ---- ---- ---- ---- ---- 
 
     // -- UI --
-
-    ctx.strokeStyle = "green";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(joystick.x, joystick.y, joystick.width, joystick.height);
-    ctx.fill();
 
     // ---- ---- ---- ---- ---- ---- ---- ---- 
 

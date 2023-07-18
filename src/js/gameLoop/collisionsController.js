@@ -10,6 +10,7 @@
 function collisionsController() {
 
     checkPlayerAndEnemiesCollisions();
+    checkBulletsAndEnemiesCollisions();
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 
@@ -30,5 +31,20 @@ function checkPlayerAndEnemiesCollisions() {
 }
 
 // ---- ---- ---- ---- ---- ---- ---- ----
+
+function checkBulletsAndEnemiesCollisions() {
+
+    enemyArmy.forEach((enemy) => {
+
+        bulletsArmy.forEach((bullet) => {
+
+            if (Collisions.circularCollision(enemy, bullet)) {
+
+                enemy.destroy = true;
+                bullet.destroy = true;
+            }
+        });
+    });
+}
 
 // ---- ---- ---- ---- ---- ---- ---- ---- 

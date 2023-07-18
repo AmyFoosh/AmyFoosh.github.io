@@ -26,12 +26,12 @@ function enemyController() {
 // Create a new enemy on random location.
 function spawnEnemy() {
 
-    if (Math.random() < 0.5) {
+    if (Math.random() < 0.05) {
 
         let posX = (player.x - canvas.width / 2) + Math.random() * canvas.width;
         let posY = (player.y - canvas.height / 2) + Math.random() * canvas.height;
 
-        let enemySize = 5 + Math.random() * 10;
+        let enemySize = 5 + Math.random() * 20;
 
         let enemy = new Enemy(posX, posY, enemySize);
         enemyArmy.push(enemy);
